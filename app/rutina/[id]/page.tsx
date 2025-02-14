@@ -4,7 +4,6 @@ import { Ejercicio } from "@/app/lib/definitions";
 
 
 export default async function Page({ params }: { params: { id: string } }) {
-        const fetchPdf = async () => {
             try {
                 const id = parseInt(params.id, 10);
 
@@ -52,7 +51,5 @@ export default async function Page({ params }: { params: { id: string } }) {
             } catch (error) {
                 console.error("Error al descargar la rutina:", error);
             }
-        }
-        fetchPdf();
     return <div></div>;
 }
