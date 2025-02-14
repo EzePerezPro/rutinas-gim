@@ -1,6 +1,6 @@
 
 import jsPDF from "jspdf";
-import { getRutina } from "../lib/data";
+import { getRutina } from "../../lib/data";
 
 export default async function Home({ id }: { id: number }) {
 
