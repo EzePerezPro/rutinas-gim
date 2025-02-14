@@ -30,4 +30,4 @@ export async function getRutina(id: number) {
         console.error("Error getting rutina:", error);
         throw error;
     }
-}
+} 
