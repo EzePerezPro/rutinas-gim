@@ -4,9 +4,9 @@ import { getRutina } from "@/app/lib/data";
 import { Ejercicio } from "@/app/lib/definitions";
 
 
-export async function GET(req: Request, { params }: { params: { id: number } }) {
+export async function GET(req: Request, { params }: { params: { id: string } }) {
   try {
-    const id = params.id;
+    const id = parseInt(params.id, 10);
 
                    //crear y descargar un pdf
                    const doc = new jsPDF();
