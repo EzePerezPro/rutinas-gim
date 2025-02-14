@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import jsPDF from "jspdf";
 import { getRutina } from "@/app/lib/data";
