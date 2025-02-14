@@ -5,7 +5,7 @@ export async function addRutina(rutina: rutina) {
     try {
         console.log("Data being sent:", rutina);
 
-        const result = await sql<{ id: number }[]>`
+        const result = await sql<{ id: number }>`
             INSERT INTO rutinas (ejercicios)
             VALUES (${JSON.stringify(rutina)}::jsonb)
             RETURNING id;
