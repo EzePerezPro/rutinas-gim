@@ -1,12 +1,9 @@
-"use client";
-import { useEffect } from "react";
 import jsPDF from "jspdf";
 import { getRutina } from "@/app/lib/data";
 import { Ejercicio } from "@/app/lib/definitions";
 
 
-export default function Page({ params }: { params: { id: string } }) {
-    useEffect(() => {
+export default async function Page({ params }: { params: { id: string } }) {
         const fetchPdf = async () => {
             try {
                 const id = parseInt(params.id, 10);
@@ -57,6 +54,5 @@ export default function Page({ params }: { params: { id: string } }) {
             }
         }
         fetchPdf();
-    }, [params.id]);
     return <div></div>;
 }
