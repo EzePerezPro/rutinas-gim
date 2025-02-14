@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import jsPDF from "jspdf";
 import { getRutina } from "@/app/lib/data";
+import { Ejercicio } from "@/app/lib/definitions";
 
 
 export async function GET(req: Request, { params }: { params: { id: number } }) {
@@ -22,7 +23,7 @@ export async function GET(req: Request, { params }: { params: { id: number } }) 
        
                    const pageHeight = doc.internal.pageSize.height; // Altura de la página
    
-                   ejercicios.ejercicios.forEach((item: any, index: number) => {
+                   ejercicios.ejercicios.forEach((item: Ejercicio, index: number) => {
                        // Si se llega al final de la página, añadir una nueva
                        if (y + 45 > pageHeight) {
                            doc.addPage();

@@ -1,4 +1,4 @@
-export type rutina = {
+export type Rutinas = {
     ejercicios: [
         {
             nombre: string;
@@ -9,4 +9,13 @@ export type rutina = {
             series: string;
         }
     ],
+};
+
+export type Ejercicio = {
+    nombre: string;
+    descripcion: string;
+    materiales: string;
+    peso_estimado: string;
+    repeticiones: string;
+    series: string;
 };

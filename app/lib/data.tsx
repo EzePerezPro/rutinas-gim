@@ -1,7 +1,7 @@
 import { sql } from "@vercel/postgres";
-import { rutina } from "./definitions";
+import { Rutinas } from "./definitions";
 
-export async function addRutina(rutina: rutina) {
+export async function addRutina(rutina: Rutinas) {
     try {
         console.log("Data being sent:", rutina);
 
@@ -20,7 +20,7 @@ export async function addRutina(rutina: rutina) {
 
 export async function getRutina(id: number) {
     try {
-        const result = await sql<rutina>`
+        const result = await sql<Rutinas>`
             SELECT ejercicios
             FROM rutinas
             WHERE id = ${id};

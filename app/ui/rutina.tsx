@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { addRutina } from "../lib/data";
-import { rutina } from "../lib/definitions";
+import { Rutinas } from "../lib/definitions";
 
 
 function crearURLConParametros(baseURL: string, data: number) {
@@ -13,7 +13,7 @@ function crearURLConParametros(baseURL: string, data: number) {
 };
 
 export default function Rutina({ formData }: { formData: Record<string, string> }) {
-    const [ejercicios, setEjercicios] = useState<rutina>();
+    const [ejercicios, setEjercicios] = useState<Rutinas>();
     const [loading, setLoading] = useState(true);
     const [url2, setUrl2] = useState<string>("");
     const url = "https://magicloops.dev/api/loop/1f9d10fe-c575-4426-a17c-22f29d3ce574/run";
