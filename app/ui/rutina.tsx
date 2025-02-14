@@ -38,7 +38,7 @@ export default function Rutina({ formData }: { formData: Record<string, string> 
 
                 setEjercicios(responseJson.ejercicios);
                 const id = await addRutina(responseJson.ejercicios);
-                setUrl2(crearURLConParametros("localhost:3000/api/", id.id));
+                setUrl2(crearURLConParametros("localhost:3000/rutina/", id.id));
 
             } catch (error) {
                 console.error("Error al obtener la rutina:", error);
