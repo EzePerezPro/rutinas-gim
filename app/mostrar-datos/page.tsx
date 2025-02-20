@@ -1,9 +1,10 @@
-import MostrarDatos from "../ui/mostrardatos"
+import { Suspense } from "react"
+import Rutina from "../ui/rutina"
 
 export default function Home() {
   return (
-    <div className="">
-      <MostrarDatos />
-    </div>
+    <Suspense fallback={<div>Cargando datos...</div>}>
+      <Rutina />
+  </Suspense>
   )
 }
