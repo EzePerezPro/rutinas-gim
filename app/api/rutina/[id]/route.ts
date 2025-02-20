@@ -1,11 +1,12 @@
 import { getRutina } from "@/app/lib/data";
 import { Ejercicio } from "@/app/lib/definitions";
 import jsPDF from "jspdf";
-import { NextResponse } from "next/server"; 
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-    const { id } = params;
-    const ejercicios = await getRutina(parseInt(id, 10));
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const { id } = req.query;
+    if(id) {
+    const ejercicios = await getRutina(parseInt(id[0], 10));
     try {
                     const doc = new jsPDF();
                     doc.setFontSize(10);
@@ -44,7 +45,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
                     });
                     const pdf = await doc.output("blob");
                     
-                    return new NextResponse(pdf, {
+                    return new Response(pdf, {
                         status: 200,
                         headers: {
                           "Content-Type": "application/pdf",
@@ -55,3 +56,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
                     console.error("Error al descargar la rutina:", error);
                 }
             }
+            else {
+                return new Response("No se encontró la rutina", { status: 404 });
+            }
+        }
