@@ -1,11 +1,9 @@
 import { getRutina } from "@/app/lib/data";
 import { Ejercicio } from "@/app/lib/definitions";
 import jsPDF from "jspdf";
-import type { NextApiRequest } from 'next'
 
-export default async function handler(req: NextApiRequest) {
-    const { id } = req.query;
-    if(id) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+    const id = (await params).id;
     const ejercicios = await getRutina(parseInt(id[0], 10));
     try {
                     const doc = new jsPDF();
