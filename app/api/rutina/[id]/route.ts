@@ -1,9 +1,9 @@
 import { getRutina } from "@/app/lib/data";
 import { Ejercicio } from "@/app/lib/definitions";
 import jsPDF from "jspdf";
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest } from 'next'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest) {
     const { id } = req.query;
     if(id) {
     const ejercicios = await getRutina(parseInt(id[0], 10));
